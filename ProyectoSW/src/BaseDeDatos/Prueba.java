@@ -5,15 +5,21 @@
  */
 package BaseDeDatos;
 
+import Consultas.Querys;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author villalobos28
  */
 public class Prueba {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         MySQL db =  new MySQL();
+        Querys querys = new Querys();
+        querys.ConsultaAutores();
         db.abrir();
-        db.cerrar();
+        
     }
 }
