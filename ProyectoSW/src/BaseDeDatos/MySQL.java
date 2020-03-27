@@ -14,9 +14,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author villalobos28
+ * Class
+ * @ClassName       MySQL
+ * @Author          Jesús Villalobos
+ * @Date            Marzo del 2020
+ * @Version         1
+ * @Description     Está clase se encarga de la conexión con la base de datos.
+ *                  Funciona no mover en caso de querer hacer otro tipo de query.
  */
+
 public class MySQL {
 
     public static Connection Connection;
@@ -26,7 +32,7 @@ public class MySQL {
     public static final String Password = "CbNbdnUOv2sQmaPXriq5";
     public static final String Port = "3306";
 
-    public Connection abrir() {
+    public Connection Open() {
         String Url = "jdbc:mysql://" + Host + ":" + Port + "/" + DataBaseName;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -38,7 +44,7 @@ public class MySQL {
         return Connection;
     }
 
-    public void cerrar() {
+    public void Close() {
         try {
             if (Connection != null) {
                 Connection.close();
@@ -50,7 +56,7 @@ public class MySQL {
     }
 
     public boolean Update(String queryString) throws SQLException {
-        Connection = abrir();
+        Connection = Open();
         PreparedStatement pstm = Connection.prepareStatement(queryString);
         if (pstm.executeUpdate() == 1) {
             //miConexion
@@ -59,11 +65,11 @@ public class MySQL {
         return false;
     }
 
-    public boolean iniciarSesion(String queryString) throws SQLException {
+    public boolean Login(String queryString) throws SQLException {
         Statement st = null;
         ResultSet rs = null;
         try {
-            Connection = abrir();
+            Connection = Open();
             st = Connection.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
                     ResultSet.CONCUR_READ_ONLY);
@@ -81,7 +87,7 @@ public class MySQL {
         Statement st = null;
         int regreso = 0;
         try {
-            Connection = abrir();
+            Connection = Open();
             // Inicializar Statement y Resulset
             st = Connection.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -112,7 +118,7 @@ public class MySQL {
         ResultSet rs = null;
         DefaultTableModel dtm = new DefaultTableModel();
         try { // try-catch-finally
-            Connection = abrir();
+            Connection = Open();
             // Inicializar Statement y Resulset
             st = Connection.createStatement(
                     ResultSet.TYPE_SCROLL_INSENSITIVE,
