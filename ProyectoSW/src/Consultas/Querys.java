@@ -6,16 +6,30 @@
 package Consultas;
 
 /**
+ * Class
  *
- * @author villalobos28
+ * @ClassName Querys
+ * @Author Jesús Villalobos
+ * @Date Marzo del 2020
+ * @Version 1
+ * @Description En está clase se guardan todas las querys de MySQL que el sistema
+ *              va a utilizar.
  */
-//  En está clase se insertan todas las consultas que el sistema va a ejecutar
-
 
 public class Querys {
 
-    //  Ejemplo
-    public String ConsultaAutores() {
+    /**
+     * Function
+     *
+     * @FunctionName SelectAuthors
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Este es un ejemplo de como van a estar declaradas las querys; tienen
+     *              que estar en manera de función que regrese un string con la query lista para
+     *              mandarla a la base de datos.
+     */
+    public String SelectAuthors() {
         return "SELECT `Autores`.`id autor`,\n"
                 + "    `Autores`.`nombre`,\n"
                 + "    `Autores`.`apellido`,\n"

@@ -15,23 +15,32 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Class
- * @ClassName       MySQL
- * @Author          Jesús Villalobos
- * @Date            Marzo del 2020
- * @Version         1
- * @Description     Está clase se encarga de la conexión con la base de datos.
- *                  Funciona no mover en caso de querer hacer otro tipo de query.
+ *
+ * @ClassName MySQL
+ * @Author Jesús Villalobos
+ * @Date Marzo del 2020
+ * @Version 1
+ * @Description Está clase se encarga de la conexión con la base de datos.
+ * Funciona no mover en caso de querer hacer otro tipo de query.
  */
-
 public class MySQL {
 
-    public static Connection Connection;
-    public static final String Host = "bd85in3u2jlgurs2idgr-mysql.services.clever-cloud.com";
-    public static final String DataBaseName = "bd85in3u2jlgurs2idgr";
-    public static final String User = "uzvzz1gsmduzxxd6";
-    public static final String Password = "CbNbdnUOv2sQmaPXriq5";
-    public static final String Port = "3306";
+    static Connection Connection;
+    static final String Host = "bd85in3u2jlgurs2idgr-mysql.services.clever-cloud.com";
+    static final String DataBaseName = "bd85in3u2jlgurs2idgr";
+    static final String User = "uzvzz1gsmduzxxd6";
+    static final String Password = "CbNbdnUOv2sQmaPXriq5";
+    static final String Port = "3306";
 
+    /**
+     * Function
+     *
+     * @FunctionName Open
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función abre la conexión con la base de datos
+     */
     public Connection Open() {
         String Url = "jdbc:mysql://" + Host + ":" + Port + "/" + DataBaseName;
         try {
@@ -44,6 +53,15 @@ public class MySQL {
         return Connection;
     }
 
+    /**
+     * Function
+     *
+     * @FunctionName Close
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función cierra la conexión con la base de datos
+     */
     public void Close() {
         try {
             if (Connection != null) {
@@ -55,6 +73,16 @@ public class MySQL {
         }
     }
 
+    /**
+     * Function
+     *
+     * @FunctionName Update
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está actualiza tablas en la base de datos y regresa un valor de tipo 
+     *              booleano en caso de hacerse o no el update.
+     */
     public boolean Update(String queryString) throws SQLException {
         Connection = Open();
         PreparedStatement pstm = Connection.prepareStatement(queryString);
@@ -65,6 +93,17 @@ public class MySQL {
         return false;
     }
 
+    /**
+     * Function
+     *
+     * @FunctionName Login
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función se encargar del inicio de sesión de los usuarios en el 
+     *              sistema verficiando en la base de datos; regresa un valor de tipo booleano 
+     *              si se hace o no el login.
+     */
     public boolean Login(String queryString) throws SQLException {
         Statement st = null;
         ResultSet rs = null;
@@ -82,7 +121,17 @@ public class MySQL {
         }
         return false;
     }
-    
+
+    /**
+     * Function
+     *
+     * @FunctionName Inserta
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función inserta datos en la base de datos; regresa un valor de tipo booleano
+     *              en caso de hacerse o no el insert.
+     */
     public boolean Insert(String queryString) throws SQLException {
         Statement st = null;
         int regreso = 0;
@@ -109,10 +158,21 @@ public class MySQL {
                 System.out.println("Excepción: " + ex.toString());
             }
         }
-        if (regreso > 0) {return true;}
+        if (regreso > 0) {
+            return true;
+        }
         return false;
     }
-    
+
+    /**
+     * Function
+     *
+     * @FunctionName Select
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función hace una consulta  de datos y las inserta en un 'DefaultTableModel'.
+     */
     public DefaultTableModel Select(String queryString) throws SQLException {
         Statement st = null;
         ResultSet rs = null;
