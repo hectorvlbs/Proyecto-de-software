@@ -205,17 +205,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ISBN" max="32767" attributes="0"/>
-                              <Component id="Autor" alignment="1" pref="35" max="32767" attributes="0"/>
-                              <Component id="Titulo" alignment="0" max="32767" attributes="0"/>
-                              <Component id="Editorial" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="LabelISBN" max="32767" attributes="0"/>
+                              <Component id="LabelAutor" alignment="1" pref="35" max="32767" attributes="0"/>
+                              <Component id="LabelTitulo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="LabelEditorial" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField10" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField11" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TextAreaTitle" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TextAreaEditorial" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TextAreaAuthor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="TextAreaISBN" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
@@ -233,23 +233,23 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ISBN" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelISBN" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextAreaISBN" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Autor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField10" alignment="3" max="-2" attributes="0"/>
+                      <Component id="LabelAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextAreaAuthor" alignment="3" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="Titulo" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelTitulo" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextAreaTitle" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="Editorial" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelEditorial" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextAreaEditorial" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
@@ -275,7 +275,7 @@
             <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalStrut"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="ISBN">
+        <Component class="javax.swing.JLabel" name="LabelISBN">
           <Properties>
             <Property name="text" type="java.lang.String" value="ISBN"/>
           </Properties>
@@ -283,7 +283,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="Autor">
+        <Component class="javax.swing.JLabel" name="LabelAutor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Autor"/>
           </Properties>
@@ -291,7 +291,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="Titulo">
+        <Component class="javax.swing.JLabel" name="LabelTitulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Titulo"/>
           </Properties>
@@ -299,7 +299,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="Editorial">
+        <Component class="javax.swing.JLabel" name="LabelEditorial">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editorial"/>
           </Properties>
@@ -307,25 +307,13 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="TextAreaTitle">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField9"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="TextAreaEditorial">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="TextAreaAuthor">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField11">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jTextField8"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="TextAreaISBN">
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>

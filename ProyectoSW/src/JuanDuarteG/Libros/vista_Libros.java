@@ -22,7 +22,51 @@ public class vista_Libros extends javax.swing.JPanel {
 
     }
 
-    private static void Searchby() {
+    /**
+     * Function
+     *
+     * @FunctionName Searchby
+     * @Author JuanDuarteG
+     * @Date 30/03/2020
+     * @Version 1
+     * @Description Buscar libros en Base de Datos por parametro especifico.
+     */
+    private static void Searchby(String ISBN, String Autor, String Titulo, String Editorial) {
+
+        if (ISBN.equals("")) {
+            ISBN = null;
+        } else {
+            ISBN = "'" + ISBN + "'";
+        }
+
+        if (Autor.equals("")) {
+            Autor = null;
+        } else {
+            Autor = "'" + Autor + "'";
+        }
+
+        if (Titulo.equals("")) {
+            Titulo = null;
+        } else {
+            Titulo = "'" + Titulo + "'";
+        }
+
+        if (Editorial.equals("")) {
+            Editorial = null;
+        } else {
+            Editorial = "'" + Editorial + "'";
+        }
+
+        String query = "CALL  BuscarPor(" + ISBN + "," + Autor + "," + Titulo + "," + Editorial + ");";
+        System.out.println(query);
+        MySQL objectMySQL = new MySQL();
+        try {
+            BookTable.setModel(objectMySQL.Select(query));
+            BookTable.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(vista_Libros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -44,14 +88,14 @@ public class vista_Libros extends javax.swing.JPanel {
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(180, 250), new java.awt.Dimension(180, 250), new java.awt.Dimension(180, 250));
         jPanel1 = new javax.swing.JPanel();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(1, 0), new java.awt.Dimension(1, 0), new java.awt.Dimension(1, 32767));
-        ISBN = new javax.swing.JLabel();
-        Autor = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        Editorial = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
+        LabelISBN = new javax.swing.JLabel();
+        LabelAutor = new javax.swing.JLabel();
+        LabelTitulo = new javax.swing.JLabel();
+        LabelEditorial = new javax.swing.JLabel();
+        TextAreaTitle = new javax.swing.JTextField();
+        TextAreaEditorial = new javax.swing.JTextField();
+        TextAreaAuthor = new javax.swing.JTextField();
+        TextAreaISBN = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -128,21 +172,13 @@ public class vista_Libros extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Busqueda Por", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP));
 
-        ISBN.setText("ISBN");
+        LabelISBN.setText("ISBN");
 
-        Autor.setText("Autor");
+        LabelAutor.setText("Autor");
 
-        Titulo.setText("Titulo");
+        LabelTitulo.setText("Titulo");
 
-        Editorial.setText("Editorial");
-
-        jTextField8.setText("jTextField8");
-
-        jTextField9.setText("jTextField9");
-
-        jTextField10.setText("jTextField8");
-
-        jTextField11.setText("jTextField8");
+        LabelEditorial.setText("Editorial");
 
         jButton2.setText("Buscar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -161,16 +197,16 @@ public class vista_Libros extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Autor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                            .addComponent(Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Editorial, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(LabelISBN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelAutor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                            .addComponent(LabelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LabelEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField11))
+                            .addComponent(TextAreaTitle)
+                            .addComponent(TextAreaEditorial)
+                            .addComponent(TextAreaAuthor)
+                            .addComponent(TextAreaISBN))
                         .addGap(14, 14, 14))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -182,20 +218,20 @@ public class vista_Libros extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ISBN)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelISBN)
+                    .addComponent(TextAreaISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Autor)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelAutor)
+                    .addComponent(TextAreaAuthor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Titulo)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelTitulo)
+                    .addComponent(TextAreaTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Editorial)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelEditorial)
+                    .addComponent(TextAreaEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -324,10 +360,7 @@ public class vista_Libros extends javax.swing.JPanel {
 
     private void ButtonSearchby(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSearchby
 
-        if (ISBN.getText()) {
-            
-        }
-        Searchby();
+        Searchby(TextAreaISBN.getText(), TextAreaAuthor.getText(), TextAreaTitle.getText(), TextAreaEditorial.getText());
 
     }//GEN-LAST:event_ButtonSearchby
 
@@ -336,11 +369,15 @@ public class vista_Libros extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private static javax.swing.JLabel Autor;
     private static javax.swing.JTable BookTable;
-    private static javax.swing.JLabel Editorial;
-    private static javax.swing.JLabel ISBN;
-    private static javax.swing.JLabel Titulo;
+    private static javax.swing.JLabel LabelAutor;
+    private static javax.swing.JLabel LabelEditorial;
+    private static javax.swing.JLabel LabelISBN;
+    private static javax.swing.JLabel LabelTitulo;
+    private javax.swing.JTextField TextAreaAuthor;
+    private javax.swing.JTextField TextAreaEditorial;
+    private javax.swing.JTextField TextAreaISBN;
+    private javax.swing.JTextField TextAreaTitle;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
@@ -358,10 +395,6 @@ public class vista_Libros extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
