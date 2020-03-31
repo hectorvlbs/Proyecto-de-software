@@ -119,14 +119,14 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="8" rowCount="24">
-                <Column editable="true" title="ID" type="java.lang.Object"/>
-                <Column editable="true" title="ISBN" type="java.lang.Object"/>
-                <Column editable="true" title="Titulo" type="java.lang.Object"/>
-                <Column editable="true" title="Edicion" type="java.lang.Object"/>
-                <Column editable="true" title="Editorial" type="java.lang.Object"/>
-                <Column editable="true" title="Autor" type="java.lang.Object"/>
-                <Column editable="true" title="Categoria" type="java.lang.Object"/>
-                <Column editable="true" title="Precio" type="java.lang.Object"/>
+                <Column editable="true" title="id_libro" type="java.lang.Object"/>
+                <Column editable="true" title="isbn" type="java.lang.Object"/>
+                <Column editable="true" title="titulo" type="java.lang.Object"/>
+                <Column editable="true" title="edicion" type="java.lang.Object"/>
+                <Column editable="true" title="precio" type="java.lang.Object"/>
+                <Column editable="true" title="autor" type="java.lang.Object"/>
+                <Column editable="true" title="editorial" type="java.lang.Object"/>
+                <Column editable="true" title="categoria" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
@@ -187,7 +187,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="Busqueda avanzada">
+            <TitledBorder justification="2" position="2" title="Busqueda Por">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
               </Border>
@@ -205,10 +205,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel5" max="32767" attributes="0"/>
-                              <Component id="jLabel7" alignment="1" pref="35" max="32767" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="ISBN" max="32767" attributes="0"/>
+                              <Component id="Autor" alignment="1" pref="35" max="32767" attributes="0"/>
+                              <Component id="Titulo" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Editorial" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -233,22 +233,22 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="ISBN" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField11" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Autor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField10" alignment="3" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                      <Component id="Titulo" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <Component id="Editorial" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -275,25 +275,37 @@
             <AuxValue name="classDetails" type="java.lang.String" value="Box.Filler.HorizontalStrut"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="ISBN">
           <Properties>
             <Property name="text" type="java.lang.String" value="ISBN"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="Autor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Autor"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
+        <Component class="javax.swing.JLabel" name="Titulo">
           <Properties>
             <Property name="text" type="java.lang.String" value="Titulo"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
+        <Component class="javax.swing.JLabel" name="Editorial">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editorial"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField8">
           <Properties>
@@ -319,6 +331,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonSearchby"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -344,7 +359,8 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane4" pref="209" max="32767" attributes="0"/>
                   </Group>
@@ -363,7 +379,10 @@
                       <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -404,6 +423,14 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButton3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver Compra"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jButton4">
