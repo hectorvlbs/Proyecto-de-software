@@ -33,7 +33,7 @@ public class MetodoLogin {
         MySQL db =  new MySQL();
         Querys query = new Querys();
         String us = query.ConsultaUsuario(username,password);
-        exists = db.iniciarSesion(us);
+        exists = db.Login(us);
         
         return exists;
     }
