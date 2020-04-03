@@ -14,13 +14,18 @@ package Consultas;
 
 public class Querys {
 
-    //  Ejemplo
-    public String ConsultaAutores() {
-        return "SELECT `Autores`.`id_autor`,\n"
-                + "    `Autores`.`nombre`,\n"
-                + "    `Autores`.`apellido`,\n"
-                + "    `Autores`.`nacionalidad`\n"
-                + "FROM `bd85in3u2jlgurs2idgr`.`Autores`;";
+    /**
+     * Function
+     *
+     * @FunctionName RegisterEditorial
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Regresa el query para llamar al procedure
+     * RegisterEditorial()
+     */
+    public String RegisterEditorial() {
+        return "{CALL RegisterEditorial(?,?,?,?,?)}";
     }
     
     /**
