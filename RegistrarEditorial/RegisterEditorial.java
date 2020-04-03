@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package RegistrarEditorial;
 
 import BaseDeDatos.MySQL;
 import javax.swing.JOptionPane;
 
 /**
  * Class
- *
  * @ClassName RegisterEditorial
  * @Author Jesús Villalobos
  * @Date Marzo del 2020

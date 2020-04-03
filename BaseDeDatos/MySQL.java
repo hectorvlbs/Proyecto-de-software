@@ -3,6 +3,8 @@
  */
 package BaseDeDatos;
 
+import Consultas.Querys;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -32,6 +34,8 @@ public class MySQL {
     static final String Password = "CbNbdnUOv2sQmaPXriq5";
     static final String Port = "3306";
 
+    Querys querys = new Querys();
+    
     /**
      * Function
      *
@@ -234,5 +238,32 @@ public class MySQL {
             }
         }
         return dtm;
+    }
+    
+    /**
+     * Function
+     * @FunctionName ProcedureRegisterEditorial
+     * @Author Jesús Villalobos
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función ejecuta el procedure RegisterEditorial
+     *              FUNCIONA; NO MOVER.
+     */
+    public boolean ProcedureRegisterEditorial(String Nombre, String Calle, int Numero, int CP, String Telefono) {
+        Connection = Open();
+        try {
+            CallableStatement stmt = Connection.prepareCall(querys.RegisterEditorial());
+            stmt.setString(1, Nombre);
+            stmt.setString(2, Calle);
+            stmt.setInt(3, Numero);
+            stmt.setInt(4, CP);
+            stmt.setString(5, Telefono);
+            if (stmt.execute() == false) {
+                return true;
+            } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
