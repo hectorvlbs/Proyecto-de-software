@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -6,47 +6,34 @@
 package Consultas;
 
 /**
- * Class
  *
- * @ClassName Querys
- * @Author Jesús Villalobos
- * @Date Marzo del 2020
- * @Version 1
- * @Description En está clase se guardan todas las querys de MySQL que el
- * sistema va a utilizar.
+ * @author villalobos28
  */
+//  En está clase se insertan todas las consultas que el sistema va a ejecutar
+
+
 public class Querys {
 
-    /**
-     * Function
-     *
-     * @FunctionName SelectAuthors
-     * @Author Jesús Villalobos
-     * @Date Marzo del 2020
-     * @Version 1
-     * @Description Este es un ejemplo de como van a estar declaradas las
-     * querys; tienen que estar en manera de función que regrese un string con
-     * la query lista para mandarla a la base de datos.
-     */
-    public String SelectAuthors() {
-        return "SELECT `Autores`.`id autor`,\n"
+    //  Ejemplo
+    public String ConsultaAutores() {
+        return "SELECT `Autores`.`id_autor`,\n"
                 + "    `Autores`.`nombre`,\n"
                 + "    `Autores`.`apellido`,\n"
                 + "    `Autores`.`nacionalidad`\n"
                 + "FROM `bd85in3u2jlgurs2idgr`.`Autores`;";
     }
-
+    
     /**
-     * Function
-     *
-     * @FunctionName RegisterEditorial
-     * @Author Jesús Villalobos
-     * @Date Marzo del 2020
-     * @Version 1
-     * @Description Regresa el query para llamar al procedure
-     * RegisterEditorial()
+     * Query
+     * @ConsusltaUsuario
+     * @author ArodyMG
+     * @01/04/2020
+     * @1.0
+     * @Descripción: Este query consulta el rol del usuario.
      */
-    public String RegisterEditorial() {
-        return "{CALL RegisterEditorial(?,?,?,?,?)}";
+    public String ConsultaUsuario(String user, String pass) {
+        return "SELECT rol  "
+                + " FROM bd85in3u2jlgurs2idgr.Empleados "
+                + " WHERE username = '"+user+"' AND password = '"+pass+"';";
     }
 }
