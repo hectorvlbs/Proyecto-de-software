@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,6 +36,7 @@ public class MySQL {
     static final String Port = "3306";
 
     Querys querys = new Querys();
+    
     
     /**
      * Function
@@ -258,6 +260,55 @@ public class MySQL {
             stmt.setInt(3, Numero);
             stmt.setInt(4, CP);
             stmt.setString(5, Telefono);
+            if (stmt.execute() == false) {
+                return true;
+            } 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+        /**
+     * Function
+     * @FunctionName ProcedureRegisterVenta
+     * @Author Jesús Gil
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función registra una venta y obtiene su id
+     *              FUNCIONA; NO MOVER.
+     */
+    public int ProcedureRegisterVenta(float money) {
+        Connection = Open();
+        int regreso = 0;
+        try {
+            CallableStatement stmt = Connection.prepareCall(querys.InsertVenta());
+            stmt.setFloat(1, money);
+            stmt.registerOutParameter(2, Types.INTEGER);
+            stmt.execute();
+            regreso = stmt.getInt(2);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return regreso;
+    }
+    
+            /**
+     * Function
+     * @FunctionName ProcedureRegisterVentaLibro
+     * @Author Jesús Gil
+     * @Date Marzo del 2020
+     * @Version 1
+     * @Description Está función registra en tabla venta_libros
+     *              FUNCIONA; NO MOVER.
+     */
+    public boolean ProcedureRegisterVentaLibro(int venta,int libro) {
+        Connection = Open();
+        int regreso = 0;
+        try {
+            CallableStatement stmt = Connection.prepareCall(querys.InsertVentaLibro());
+            stmt.setInt(1, venta);
+            stmt.setInt(2, libro);
             if (stmt.execute() == false) {
                 return true;
             } 
