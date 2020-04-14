@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Pruebas;
 
-import BaseDeDatos.MySQL;
+import Login.Login;
 
 /**
  *
  * @author villalobos28
  */
-public class MainPruebas {
+public class Test {
 
     public static void main(String[] args) {
-        //RegisterEditorial v = new RegisterEditorial();
-        //v.setVisible(true);
-        MySQL m = new MySQL();
-        m.Open();
+        Login l = new Login();
+        l.setVisible(true);
     }
 }
