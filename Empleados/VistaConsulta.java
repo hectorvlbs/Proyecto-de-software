@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Empleados;
 
 import BaseDeDatos.MySQL;
@@ -10,10 +6,6 @@ import Consultas.Querys;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author jesus
- */
 public class VistaConsulta extends javax.swing.JFrame {
 
     /**
