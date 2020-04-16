@@ -5,7 +5,11 @@
  */
 package Pruebas;
 
+import BaseDeDatos.MySQL;
+import Consultas.Querys;
 import RegistrarEditorial.RegisterEditorial;
+import java.sql.SQLException;
+import Empleados.Registrar;
 
 /**
  * Class
@@ -18,9 +22,18 @@ import RegistrarEditorial.RegisterEditorial;
  */
 public class PruebasVillalobos {
 
-    public static void main(String[] args) {
-        RegisterEditorial re = new RegisterEditorial();
-        re.setVisible(true);
+    public static void main(String[] args) throws SQLException {
+        /*
+        MySQL sql = new MySQL();
+        Querys q = new Querys();
+        if (sql.Insert(q.InsertEmployed("Jesus", "Vv", "1999/07/28", "asdd", "asd", 1, 1))) {
+            System.out.println("o");
+        } else{
+            System.out.println("p");
+        }
+        */
+        Registrar r = new Registrar();
+        r.setVisible(true);
     }
 
 }

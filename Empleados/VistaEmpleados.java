@@ -6,12 +6,14 @@
 package Empleados;
 
 import javax.swing.JOptionPane;
+import Login.Login;
 
 /**
  *
  * @author jesus
  */
 public class VistaEmpleados extends javax.swing.JFrame {
+    Login login = new Login();
 
     /**
      * Creates new form VistaEmpleados
@@ -36,7 +38,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton44 = new javax.swing.JButton();
+        logout = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -171,12 +173,11 @@ public class VistaEmpleados extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
+        register = new javax.swing.JButton();
+        edit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(245, 245, 232));
-        setPreferredSize(new java.awt.Dimension(1050, 750));
 
         jPanel1.setBackground(new java.awt.Color(245, 245, 232));
         jPanel1.setMaximumSize(new java.awt.Dimension(1050, 750));
@@ -184,7 +185,6 @@ public class VistaEmpleados extends javax.swing.JFrame {
         jPanel1.setRequestFocusEnabled(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/Logo.jpg"))); // NOI18N
-        jLabel1.setPreferredSize(new java.awt.Dimension(140, 140));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/EmpleadosCabecera.png"))); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(140, 140));
@@ -205,17 +205,17 @@ public class VistaEmpleados extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Módulo: Empleados");
 
-        jButton44.setBackground(new java.awt.Color(255, 255, 255));
-        jButton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnRegresar.png"))); // NOI18N
-        jButton44.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jButton44.addMouseListener(new java.awt.event.MouseAdapter() {
+        logout.setBackground(new java.awt.Color(255, 255, 255));
+        logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnRegresar.png"))); // NOI18N
+        logout.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton44MouseClicked(evt);
+                logoutMouseClicked(evt);
             }
         });
-        jButton44.addActionListener(new java.awt.event.ActionListener() {
+        logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton44ActionPerformed(evt);
+                logoutActionPerformed(evt);
             }
         });
 
@@ -231,7 +231,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
                 .addGap(143, 143, 143)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton44)
+                .addComponent(logout)
                 .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -244,7 +244,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton44)))
+                    .addComponent(logout)))
         );
 
         jPanel5.setBackground(new java.awt.Color(90, 80, 79));
@@ -1901,16 +1901,16 @@ public class VistaEmpleados extends javax.swing.JFrame {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/Empleados.png"))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(245, 245, 232));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnRegistrar.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
+        register.setBackground(new java.awt.Color(245, 245, 232));
+        register.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnRegistrar.png"))); // NOI18N
+        register.setBorder(null);
+        register.setBorderPainted(false);
+        register.setContentAreaFilled(false);
 
-        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnConsultar.png"))); // NOI18N
-        jButton45.setBorder(null);
-        jButton45.setBorderPainted(false);
-        jButton45.setContentAreaFilled(false);
+        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Imagenes/btnConsultar.png"))); // NOI18N
+        edit.setBorder(null);
+        edit.setBorderPainted(false);
+        edit.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1926,12 +1926,12 @@ public class VistaEmpleados extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton1)
+                                .addComponent(register)
                                 .addGap(9, 9, 9)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(249, 249, 249)
-                                .addComponent(jButton45))
+                                .addComponent(edit))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(273, 273, 273)
                                 .addComponent(jLabel4)))))
@@ -1995,7 +1995,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(313, 313, 313)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
                         .addGap(147, 147, 147)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -2017,7 +2017,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -2106,8 +2106,8 @@ public class VistaEmpleados extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(register)
+                            .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -2141,13 +2141,17 @@ public class VistaEmpleados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton44MouseClicked
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton44MouseClicked
+    }//GEN-LAST:event_logoutMouseClicked
 
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        JOptionPane.showMessageDialog(this, "Hola!");
-    }//GEN-LAST:event_jButton44ActionPerformed
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        /**
+         *  Cerrar sesion
+         */
+        this.setVisible(false);
+        login.setVisible(true);
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2185,7 +2189,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton edit;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -2223,8 +2227,6 @@ public class VistaEmpleados extends javax.swing.JFrame {
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -2329,5 +2331,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel88;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lblAdmin;
+    private javax.swing.JButton logout;
+    private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables
 }

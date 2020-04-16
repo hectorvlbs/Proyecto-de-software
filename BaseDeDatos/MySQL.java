@@ -36,8 +36,7 @@ public class MySQL {
     static final String Port = "3306";
 
     Querys querys = new Querys();
-    
-    
+
     /**
      * Function
      *
@@ -86,8 +85,8 @@ public class MySQL {
      * @Author Jesús Villalobos
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está actualiza tablas en la base de datos y regresa un valor de tipo 
-     *              booleano en caso de hacerse o no el update.
+     * @Description Está actualiza tablas en la base de datos y regresa un valor
+     * de tipo booleano en caso de hacerse o no el update.
      */
     public boolean Update(String queryString) throws SQLException {
         Connection = Open();
@@ -106,9 +105,9 @@ public class MySQL {
      * @Author Jesús Villalobos
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está función se encargar del inicio de sesión de los usuarios en el 
-     *              sistema verficiando en la base de datos; regresa un valor de tipo booleano 
-     *              si se hace o no el login.
+     * @Description Está función se encargar del inicio de sesión de los
+     * usuarios en el sistema verficiando en la base de datos; regresa un valor
+     * de tipo booleano si se hace o no el login.
      */
     public boolean Login(String queryString) throws SQLException {
         Statement st = null;
@@ -135,8 +134,8 @@ public class MySQL {
      * @Author Jesús Villalobos
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está función inserta datos en la base de datos; regresa un valor de tipo booleano
-     *              en caso de hacerse o no el insert.
+     * @Description Está función inserta datos en la base de datos; regresa un
+     * valor de tipo booleano en caso de hacerse o no el insert.
      */
     public boolean Insert(String queryString) throws SQLException {
         Statement st = null;
@@ -177,7 +176,8 @@ public class MySQL {
      * @Author Jesús Villalobos
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está función hace una consulta  de datos y las inserta en un 'DefaultTableModel'.
+     * @Description Está función hace una consulta de datos y las inserta en un
+     * 'DefaultTableModel'.
      */
     public DefaultTableModel Select(String queryString) throws SQLException {
         Statement st = null;
@@ -241,15 +241,16 @@ public class MySQL {
         }
         return dtm;
     }
-    
+
     /**
      * Function
+     *
      * @FunctionName ProcedureRegisterEditorial
      * @Author Jesús Villalobos
      * @Date Marzo del 2020
      * @Version 1
      * @Description Está función ejecuta el procedure RegisterEditorial
-     *              FUNCIONA; NO MOVER.
+     * FUNCIONA; NO MOVER.
      */
     public boolean ProcedureRegisterEditorial(String Nombre, String Calle, int Numero, int CP, String Telefono) {
         Connection = Open();
@@ -262,21 +263,22 @@ public class MySQL {
             stmt.setString(5, Telefono);
             if (stmt.execute() == false) {
                 return true;
-            } 
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
-    
-        /**
+
+    /**
      * Function
+     *
      * @FunctionName ProcedureRegisterVenta
      * @Author Jesús Gil
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está función registra una venta y obtiene su id
-     *              FUNCIONA; NO MOVER.
+     * @Description Está función registra una venta y obtiene su id FUNCIONA; NO
+     * MOVER.
      */
     public int ProcedureRegisterVenta(float money) {
         Connection = Open();
@@ -292,17 +294,18 @@ public class MySQL {
         }
         return regreso;
     }
-    
-            /**
+
+    /**
      * Function
+     *
      * @FunctionName ProcedureRegisterVentaLibro
      * @Author Jesús Gil
      * @Date Marzo del 2020
      * @Version 1
-     * @Description Está función registra en tabla venta_libros
-     *              FUNCIONA; NO MOVER.
+     * @Description Está función registra en tabla venta_libros FUNCIONA; NO
+     * MOVER.
      */
-    public boolean ProcedureRegisterVentaLibro(int venta,int libro) {
+    public boolean ProcedureRegisterVentaLibro(int venta, int libro) {
         Connection = Open();
         int regreso = 0;
         try {
@@ -311,7 +314,7 @@ public class MySQL {
             stmt.setInt(2, libro);
             if (stmt.execute() == false) {
                 return true;
-            } 
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

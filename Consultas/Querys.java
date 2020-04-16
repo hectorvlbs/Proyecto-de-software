@@ -50,11 +50,11 @@ public class Querys {
      * @1.0
      * @Descripción: Este query Inserta una venta.
      */
-    public String InsertVenta(){
+    public String InsertVenta() {
         return "{CALL InsertVenta(?,?)}";
     }
-    
-        /**
+
+    /**
      * Query
      *
      * @InsertVentaLibrp
@@ -63,7 +63,65 @@ public class Querys {
      * @1.0
      * @Descripción: Este query Inserta en tabla venta_libro.
      */
-    public String InsertVentaLibro(){
+    public String InsertVentaLibro() {
         return "{CALL InsertVentaLibro(?,?)}";
+    }
+
+    /**
+     * Function
+     *
+     * @FunctionName InsertEmployed
+     * @Author Jesús Villalobos
+     * @Date Abril del 2020
+     * @Version 1
+     * @Description Regresa el query para insertar datos a la tabla Empleados.
+     */
+    public String InsertEmployed(String nombre, String apellido, String fecha_nac, String username, String password, int sucursal, int rol) {
+        return "INSERT INTO `bd85in3u2jlgurs2idgr`.`Empleados`\n"
+                + "	(`nombre`,\n"
+                + "	`apellido`,\n"
+                + "	`fecha_nac`,\n"
+                + "	`username`,\n"
+                + "	`password`,\n"
+                + "	`sucursal`,\n"
+                + "	`rol`)\n"
+                + "	VALUES\n"
+                + "	('" + nombre + "',\n"
+                + "	'" + apellido + "',\n"
+                + "	'" + fecha_nac + "',\n"
+                + "	'" + username + "',\n"
+                + "	'" + password + "',\n"
+                + "	" + sucursal + ",\n"
+                + "	" + rol + ");";
+    }
+
+    /**
+     * Function
+     *
+     * @FunctionName SelectSucursalName
+     * @Author Jesús Villalobos
+     * @Date Abril del 2020
+     * @Version 1
+     * @Description Regresa el query para obetener los nombres de las
+     * sucursales.
+     */
+    public String SelectSucursalName() {
+        return "SELECT `Sucursales`.`nombre`\n"
+                + "FROM `bd85in3u2jlgurs2idgr`.`Sucursales`;";
+    }
+
+    /**
+     * Function
+     *
+     * @FunctionName GetCodeSucursal
+     * @Author Jesús Villalobos
+     * @Date Abril del 2020
+     * @Version 1
+     * @Description Regresa el query para obetener el código de una sucursal.
+     */
+    public String GetCodeSucursal(String nombre) {
+        return "SELECT `Sucursales`.`id_sucursal`\n"
+                + "FROM `bd85in3u2jlgurs2idgr`.`Sucursales`\n"
+                + "WHERE `Sucursales`.`nombre` = '" + nombre + "';";
     }
 }
