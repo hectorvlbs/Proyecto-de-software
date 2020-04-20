@@ -6,6 +6,8 @@
 package MenúDeAdministrador;
 
 import Login.Login;
+import RegistrarEditorial.RegisterEditorial;
+import Sucursales.Sucursales;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -155,6 +157,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnM_Sucursales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenúDeAdministrador/bsucursales.png"))); // NOI18N
         btnM_Sucursales.setBorder(null);
+        btnM_Sucursales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnM_SucursalesActionPerformed(evt);
+            }
+        });
 
         jLabel9.setToolTipText("");
 
@@ -162,6 +169,11 @@ public class Menu extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenúDeAdministrador/bpedidos.png"))); // NOI18N
         jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenúDeAdministrador/Editoriales.png"))); // NOI18N
 
@@ -307,6 +319,20 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnM_SucursalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnM_SucursalesActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Sucursales sucursales = new Sucursales();
+        sucursales.setVisible(true);
+    }//GEN-LAST:event_btnM_SucursalesActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        RegisterEditorial re = new RegisterEditorial();
+        re.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

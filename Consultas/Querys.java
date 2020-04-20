@@ -124,4 +124,32 @@ public class Querys {
                 + "FROM `bd85in3u2jlgurs2idgr`.`Sucursales`\n"
                 + "WHERE `Sucursales`.`nombre` = '" + nombre + "';";
     }
+
+    /**
+     * Function
+     *
+     * @FunctionName SelectSucursales
+     * @Author Jesús Villalobos
+     * @Date Abril del 2020
+     * @Version 1
+     * @Description Regresa el query para hacer un select a la tabla sucursales.
+     */
+    public String SelectSucursales() {
+        return "SELECT `Sucursales`.`nombre` as 'Nombre de la sucursal',\n"
+                + "		concat_ws ( '',`Sucursales`.`calle`, ', #', `Sucursales`.`numero`, ', CP. ',`Sucursales`.`codigo_postal`) as 'Dirección'\n"
+                + "FROM `bd85in3u2jlgurs2idgr`.`Sucursales`;";
+    }
+
+    /**
+     * Function
+     *
+     * @FunctionName AddSucursal
+     * @Author Jesús Villalobos
+     * @Date Abril del 2020
+     * @Version 1
+     * @Description Regresa el query para insertar una sucursal.
+     */
+    public String AddSucursal(String nombre, String calle, int numero, int codigo_postal) {
+        return "CALL `bd85in3u2jlgurs2idgr`.`RegistrarSucursal`('" + nombre + "', '" + calle + "'," +numero + "," + codigo_postal +");";
+    }
 }
