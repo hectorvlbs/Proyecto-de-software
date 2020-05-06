@@ -106,6 +106,11 @@ public class Registrar extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Empleados/Img/r.png"))); // NOI18N
         jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -175,6 +180,11 @@ public class Registrar extends javax.swing.JFrame {
         jLabel10.setText("Rol del empleado");
 
         Sucursal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Sucursal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SucursalActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(90, 80, 79));
 
@@ -409,6 +419,7 @@ public class Registrar extends javax.swing.JFrame {
             /* 
                 Se pasa el query a la clase MySQL para que haga el insert
              */
+            /*
             System.out.println(nombre);
             System.out.println(apellido);
             System.out.println(birthdate);
@@ -416,12 +427,13 @@ public class Registrar extends javax.swing.JFrame {
             System.out.println(password);
             System.out.println(rol);
             System.out.println(sucursal);
+            */
 
             if (mysql.Insert(insertemployed)) {
                 UI.put("OptionPane.background", new ColorUIResource(90, 80, 79));
                 UI.put("Panel.background", new ColorUIResource(245, 245, 232));
-                //Icon icono = new ImageIcon(getClass().getResource("out.png"));
-                JOptionPane.showMessageDialog(null, "Se registro el empleado " + nombre + ".", "Book Store", JOptionPane.PLAIN_MESSAGE);
+                Icon icono = new ImageIcon(getClass().getResource("Img/Update.png"));
+                JOptionPane.showMessageDialog(null, "Se registro el empleado " + nombre + ".", "Book Store", JOptionPane.PLAIN_MESSAGE,icono);
                 Nombre.setText("");
                 Apellido.setText("");
                 Username.setText("");
@@ -429,8 +441,8 @@ public class Registrar extends javax.swing.JFrame {
             } else {
                 UI.put("OptionPane.background", new ColorUIResource(90, 80, 79));
                 UI.put("Panel.background", new ColorUIResource(245, 245, 232));
-                //Icon icono = new ImageIcon(getClass().getResource("out.png"));
-                JOptionPane.showMessageDialog(null, "Fallo el registro del empleado " + nombre + ".", "Book Store", JOptionPane.PLAIN_MESSAGE);
+                Icon icono = new ImageIcon(getClass().getResource("Img/Update.png"));
+                JOptionPane.showMessageDialog(null, "Fallo el registro del empleado " + nombre + ".", "Book Store", JOptionPane.PLAIN_MESSAGE,icono);
             }
 
         } catch (SQLException ex) {
@@ -441,6 +453,17 @@ public class Registrar extends javax.swing.JFrame {
     private void RolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RolActionPerformed
+
+    private void SucursalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SucursalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SucursalActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        VistaEmpleados ve = new VistaEmpleados();
+        ve.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

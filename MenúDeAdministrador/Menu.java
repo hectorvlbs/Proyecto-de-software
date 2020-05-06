@@ -5,8 +5,11 @@
  */
 package MenúDeAdministrador;
 
+import Editoriales.Editoriales;
+import Empleados.VistaEmpleados;
 import Login.Login;
-import RegistrarEditorial.RegisterEditorial;
+import Pedidos.Pedidos;
+import Reportes.Reportes;
 import Sucursales.Sucursales;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -179,6 +182,11 @@ public class Menu extends javax.swing.JFrame {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MenúDeAdministrador/beditoriales.png"))); // NOI18N
         jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -208,7 +216,7 @@ public class Menu extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnM_Sucursales, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -300,22 +308,32 @@ public class Menu extends javax.swing.JFrame {
         UIManager UI = new UIManager();
         UI.put("OptionPane.background", new ColorUIResource(90,80,79));
         UI.put("Panel.background",new ColorUIResource(245,245,232));
-        Icon icono = new ImageIcon(getClass().getResource("out.png"));
+        Icon icono = new ImageIcon(getClass().getResource("Img/out.png"));
         JOptionPane.showMessageDialog(null, "Adiós.", "Book Store", JOptionPane.PLAIN_MESSAGE, icono);
         System.exit(WIDTH);
     }//GEN-LAST:event_Btn_OutActionPerformed
 
     private void btnM_ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnM_ReportesActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        Reportes r = new Reportes();
+        r.setVisible(true);
     }//GEN-LAST:event_btnM_ReportesActionPerformed
 
     private void btnM_EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnM_EmpleadosActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        VistaEmpleados ve = new VistaEmpleados();
+        ve.setVisible(true);
     }//GEN-LAST:event_btnM_EmpleadosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        UIManager UI = new UIManager();
+        UI.put("OptionPane.background", new ColorUIResource(90,80,79));
+        UI.put("Panel.background",new ColorUIResource(245,245,232));
+        Icon icono = new ImageIcon(getClass().getResource("Img/out.png"));
+        JOptionPane.showMessageDialog(null, "Adiós.", "Book Store", JOptionPane.PLAIN_MESSAGE, icono);
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -330,9 +348,16 @@ public class Menu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        RegisterEditorial re = new RegisterEditorial();
-        re.setVisible(true);
+        Pedidos p = new Pedidos();
+        p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        Editoriales e = new Editoriales();
+        e.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

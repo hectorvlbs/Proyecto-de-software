@@ -183,7 +183,7 @@ public class Login extends javax.swing.JFrame {
                     /* 
                         En Windows la dirección de la imágen cambia.
                      */
-                    Icon icono = new ImageIcon(getClass().getResource("img/valido.png"));
+                    Icon icono = new ImageIcon(getClass().getResource("Img/valido.png"));
 
                     JOptionPane.showMessageDialog(this, "¡Bienvenido administrador!\nHora de trabajar.", "Book Store", JOptionPane.PLAIN_MESSAGE, icono);
                     this.setVisible(false);

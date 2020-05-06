@@ -315,6 +315,10 @@ public class AgregarSucursal extends javax.swing.JFrame {
                 UI.put("Panel.background", new ColorUIResource(245, 245, 232));
                 Icon icono = new ImageIcon(getClass().getResource("img/Tienda.png"));
                 JOptionPane.showMessageDialog(null, "Se registro la sucursal " + Nombre.getText() +".", "Book Store", JOptionPane.PLAIN_MESSAGE, icono);
+                Nombre.setText("");
+                Calle.setText("");
+                Numero.setText("");
+                Codigo_postal.setText("");
             }
         } catch (SQLException ex) {
             Logger.getLogger(AgregarSucursal.class.getName()).log(Level.SEVERE, null, ex);

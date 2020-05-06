@@ -320,4 +320,20 @@ public class MySQL {
         }
         return false;
     }
+    
+    public boolean ProcedureInsertInventario(int sucursal, String isbn, int cantidad) {
+        Connection = Open();
+        try {
+            CallableStatement stmt = Connection.prepareCall(querys.InsertInventario());
+            stmt.setInt(1, sucursal);
+            stmt.setString(2, isbn);
+            stmt.setInt(3, cantidad);
+            if (stmt.execute() == false) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
